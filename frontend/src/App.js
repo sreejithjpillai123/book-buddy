@@ -21,7 +21,7 @@ function App() {
 
   const [stats, setStats] = useState(null);
   const [recommendations, setRecommendations] = useState({});
-  const [reviews, setReviews] = useState({}); // 🆕 for storing AI reviews
+  const [reviews, setReviews] = useState({}); 
 
   const getBooks = () => {
     axios.get(`${API}/books`).then(res => setBooks(res.data));
@@ -188,7 +188,7 @@ function App() {
               Generate Summary
             </button>
 
-            {/* 🧠 Generate AI Review */}
+          
             <button
               style={{ marginLeft: '10px', backgroundColor: '#9b59b6', color: 'white' }}
               onClick={() => {
@@ -239,7 +239,7 @@ function App() {
             <br />
             Summary: {book.summary || book.notes || "No notes yet."}
 
-            {/* ⭐ Star Rating UI */}
+          
             <div style={{ marginTop: '8px' }}>
               Rating:
               {[1, 2, 3, 4, 5].map(star => (
@@ -263,14 +263,14 @@ function App() {
               ))}
             </div>
 
-            {/* 💬 Show AI-generated review */}
+          
             {reviews[book.id] && (
               <p style={{ fontStyle: 'italic', color: '#555' }}>
                 <b>AI Review:</b> {reviews[book.id]}
               </p>
             )}
 
-            {/* 📚 Show Recommendations */}
+           
             {recommendations[book.id] && (
               <div style={{ marginTop: '10px' }}>
                 <b>Recommended Books:</b>
