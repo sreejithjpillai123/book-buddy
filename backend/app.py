@@ -5,16 +5,16 @@ import cohere
 import requests
 from datetime import datetime
 
-# ✅ Flask app and DB config
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 db = SQLAlchemy(app)
 
-# ✅ Cohere AI Key
+
 cohere_client = cohere.Client("5VmAzPgv216bY6aCv7h6Xibqcf1hIUp6heeG6tu1")
 
-# ✅ Book Model
+
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
@@ -24,9 +24,9 @@ class Book(db.Model):
     progress = db.Column(db.Integer, default=0)
     notes = db.Column(db.Text)
     rating = db.Column(db.Integer)
-    date_added = db.Column(db.DateTime, default=datetime.utcnow)  # ⭐ Rating added
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)  #
 
-# ✅ Get All Books
+
 @app.route('/books', methods=['GET'])
 def get_books():
     books = Book.query.all()
@@ -42,7 +42,7 @@ def get_books():
         "date_added": b.date_added.strftime("%Y-%m-%d")
     } for b in books])
 
-# ✅ Add Book
+
 @app.route('/books', methods=['POST'])
 def add_book():
     data = request.get_json()
@@ -52,13 +52,13 @@ def add_book():
         genre=data['genre'],
         status=data['status'],
         progress=data.get('progress', 0),
-        rating=data.get('rating', 0)  # ⭐ Accept rating from frontend
+        rating=data.get('rating', 0) 
     )
     db.session.add(new_book)
     db.session.commit()
     return jsonify({"message": "Book added"}), 201
 
-# ✅ Update Book
+
 @app.route('/books/<int:id>', methods=['PUT'])
 def update_book(id):
     data = request.get_json()
@@ -69,11 +69,11 @@ def update_book(id):
     book.progress = data.get('progress', book.progress)
     book.status = data.get('status', book.status)
     book.notes = data.get('notes', book.notes)
-    book.rating = data.get('rating', book.rating)  # ⭐ Update rating
+    book.rating = data.get('rating', book.rating) 
     db.session.commit()
     return jsonify({"message": "Book updated"})
 
-# ✅ Delete Book
+
 @app.route('/books/<int:id>', methods=['DELETE'])
 def delete_book(id):
     book = Book.query.get(id)
@@ -83,7 +83,7 @@ def delete_book(id):
     db.session.commit()
     return jsonify({"message": "Book deleted"})
 
-# ✅ Reading Stats
+
 @app.route('/stats', methods=['GET'])
 def get_stats():
     total = Book.query.count()
@@ -96,7 +96,7 @@ def get_stats():
         "books_by_genre": dict(by_genre)
     })
 
-# ✅ Summarize Note Using Cohere
+
 @app.route('/summarize', methods=['POST'])
 def summarize_note():
     data = request.get_json()
@@ -123,7 +123,7 @@ def summarize_note():
         print("Cohere Error:", e)
         return jsonify({"error": "Summary generation failed"}), 500
 
-# ✅ Genre-Based Book Recommendation Using Google Books API
+
 GOOGLE_BOOKS_API_KEY = "AIzaSyAb3GbO_TfILxQPp1IlAAvom52QJ3sThq8"
 
 @app.route('/recommend/<int:book_id>', methods=['GET'])
@@ -190,7 +190,7 @@ Review:""",
 
 
 
-# ✅ Run Flask app
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
