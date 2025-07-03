@@ -14,7 +14,8 @@ Book Buddy is a full-stack web application that helps users track their reading 
 -    Stores all datas in sqlite
 
 ![Dashboard Screenshot](images/image2.png) 
-![Dashboard Screenshot](images/image3.png) 
+![Dashboard Screenshot](images/image4.png) 
+
 
 ## ⚙️ Setup Instructions
 
@@ -35,6 +36,8 @@ Book Buddy is a full-stack web application that helps users track their reading 
    cd backend
    python app.py
    ```
+
+![Dashboard Screenshot](images/image3.png) 
 
 ### 🌐 Frontend (React)
 1. **Install dependencies:**
