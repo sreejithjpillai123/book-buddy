@@ -2,5 +2,8 @@ services:
   - type: web
     name: book-buddy-backend
     env: python
+    region: oregon
+    plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
+    rootDir: backend
