@@ -20,27 +20,34 @@ Book Buddy is a full-stack web application that helps users track their reading 
 ### 🔧 Backend (Python + Flask + SQLite)
 1. **Install Python 3.10.13** (important for TensorFlow compatibility)
 2. Create and activate virtual environment:
+   ```bash
    python -m venv venv
+   source venv/bin/activate  # macOS/Linux
    venv\Scripts\activate     # Windows
    ```
 3. **Install dependencies:**
+   ```bash
    pip install -r backend/requirements.txt
    ```
 4. **Run the Flask server:**
+   ```bash
    cd backend
    python app.py
    ```
 
 ### 🌐 Frontend (React)
 1. **Install dependencies:**
+   ```bash
    cd frontend
    npm install
    ```
 2. **Run frontend in dev mode:**
+   ```bash
    npm start
    ```
    OR
 3. **Build frontend for production:**
+   ```bash
    npm run build
    ```
 
@@ -70,13 +77,8 @@ Book Buddy is a full-stack web application that helps users track their reading 
 - **Visualization**: Recharts (React)
 - **APIs**: OpenLibrary ISBN Lookup
 
-
-- ❗ **Build failed on Render?**  
-  Ensure `requirements.txt` is in the `backend/` folder and your Render build command is:
-  pip install -r backend/requirements.txt
-  ```
-
 ---
+
 
 ## 📁 Folder Structure
 
@@ -92,5 +94,4 @@ book-buddy/
 ├── runtime.txt         ← python-3.10.13
 ├── README.md
 ```
-
 
