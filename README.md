@@ -2,7 +2,7 @@
 
 Book Buddy is a full-stack web application that helps users track their reading progress, write notes, get AI-generated summaries and reviews, and receive personalized book recommendations.
 
-
+![Dashboard Screenshot](images/image1.png) 
 
 ### 🔖 Core Features
 - 📘 Add and manage books (title, author, genre, progress, rating)
@@ -13,7 +13,8 @@ Book Buddy is a full-stack web application that helps users track their reading 
 - 📚 Book recommendations based on reading history
 -    Stores all datas in sqlite
 
-
+![Dashboard Screenshot](images/image2.png) 
+![Dashboard Screenshot](images/image3.png) 
 
 ## ⚙️ Setup Instructions
 
